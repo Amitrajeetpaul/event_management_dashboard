@@ -1,9 +1,15 @@
 const BASE = "/api";
 
 async function request(path, options = {}) {
+  const token = localStorage.getItem("mq_token");
+  const headers = {
+    "Content-Type": "application/json",
+    ...(token ? { Authorization: `Bearer ${token}` } : {}),
+    ...options.headers,
+  };
   const res = await fetch(`${BASE}${path}`, {
-    headers: { "Content-Type": "application/json" },
     ...options,
+    headers,
   });
   const isJson = res.headers.get("content-type")?.includes("application/json");
   const body = isJson ? await res.json() : null;
@@ -15,6 +21,9 @@ async function request(path, options = {}) {
 }
 
 export const api = {
+  login: (payload) => request("/auth/login", { method: "POST", body: JSON.stringify(payload) }),
+  register: (payload) => request("/auth/register", { method: "POST", body: JSON.stringify(payload) }),
+  getMe: () => request("/auth/me"),
   listEvents: (params = {}) => {
     const qs = new URLSearchParams(Object.fromEntries(Object.entries(params).filter(([, v]) => v))).toString();
     return request(`/events${qs ? `?${qs}` : ""}`);

@@ -3,12 +3,14 @@ import { Link, useNavigate } from "react-router-dom";
 import Logo from "../components/Logo.jsx";
 import { SearchIcon } from "../components/icons.jsx";
 import { api } from "../api/client.js";
+import { useAuth } from "../context/AuthContext.jsx";
 import "./Landing.css";
 
 const TILE_ROTATION = [0, 1, 0, 1, 0, 1];
 
 export default function Landing() {
   const navigate = useNavigate();
+  const { user, logout } = useAuth();
   const [trending, setTrending] = useState([]);
   const [genre, setGenre] = useState("");
 
@@ -39,8 +41,32 @@ export default function Landing() {
           </nav>
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-          <span className="landing__loginLink">Log in</span>
-          <button className="mq-btn mq-btn--primary">Sign up</button>
+          {user ? (
+            <>
+              <span className="landing__loginLink" style={{ color: "#fff", fontWeight: 600 }}>
+                {user.name}
+              </span>
+              <Link to="/organizer" className="mq-btn mq-btn--primary mq-btn--sm">
+                Dashboard
+              </Link>
+              <button
+                className="mq-btn mq-btn--secondary mq-btn--sm"
+                style={{ padding: "8px 12px", background: "transparent", color: "#cfcbd6", border: "1px solid rgba(255,255,255,0.15)" }}
+                onClick={logout}
+              >
+                Log out
+              </button>
+            </>
+          ) : (
+            <>
+              <Link to="/login" className="landing__loginLink">
+                Log in
+              </Link>
+              <Link to="/register" className="mq-btn mq-btn--primary">
+                Sign up
+              </Link>
+            </>
+          )}
         </div>
       </header>
 

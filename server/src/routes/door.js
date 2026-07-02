@@ -2,7 +2,7 @@ import { Router } from "express";
 import Ticket from "../models/Ticket.js";
 import DoorScan from "../models/DoorScan.js";
 import Event from "../models/Event.js";
-import { getWorkspace, getActiveEvent } from "../lib/helpers.js";
+import { getActiveEvent } from "../lib/helpers.js";
 import { HttpError } from "../middleware/errorHandler.js";
 
 const router = Router();
@@ -13,7 +13,7 @@ router.post("/scan", async (req, res, next) => {
     const { code, gate = "Gate A · main", staffName = "Malik" } = req.body;
     if (!code) throw new HttpError(400, "code is required");
 
-    const workspace = await getWorkspace();
+    const workspace = req.workspace;
     const activeEvent = await getActiveEvent(workspace._id);
     if (!activeEvent) throw new HttpError(404, "No active event tonight");
 
@@ -74,7 +74,7 @@ router.post("/scan", async (req, res, next) => {
 // GET /api/door/stats — live throughput for the scanner + attendance overview screens
 router.get("/stats", async (req, res, next) => {
   try {
-    const workspace = await getWorkspace();
+    const workspace = req.workspace;
     const activeEvent = await getActiveEvent(workspace._id);
     if (!activeEvent) throw new HttpError(404, "No active event tonight");
 

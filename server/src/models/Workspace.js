@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 
 const workspaceSchema = new mongoose.Schema(
   {
+    owner: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
     name: { type: String, required: true },
     avatarInitial: { type: String, required: true },
     avatarColor: { type: String, default: "#FF4D8D" },

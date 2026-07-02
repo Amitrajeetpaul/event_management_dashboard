@@ -4,15 +4,14 @@ import TicketTier from "../models/TicketTier.js";
 import Order from "../models/Order.js";
 import Ticket from "../models/Ticket.js";
 import DoorScan from "../models/DoorScan.js";
-import { getWorkspace, getActiveEvent, money } from "../lib/helpers.js";
+import { getActiveEvent, money } from "../lib/helpers.js";
 import { HttpError } from "../middleware/errorHandler.js";
 
 const router = Router();
 
 router.get("/workspace", async (req, res, next) => {
   try {
-    const workspace = await getWorkspace();
-    res.json(workspace);
+    res.json(req.workspace);
   } catch (err) {
     next(err);
   }
@@ -21,7 +20,7 @@ router.get("/workspace", async (req, res, next) => {
 // GET /api/organizer/dashboard — Home KPIs, sales chart, live activity
 router.get("/dashboard", async (req, res, next) => {
   try {
-    const workspace = await getWorkspace();
+    const workspace = req.workspace;
     const eventIds = (await Event.find({ workspace: workspace._id }, "_id")).map((e) => e._id);
 
     const since = new Date(Date.now() - 30 * 86400000);
@@ -92,7 +91,7 @@ router.get("/dashboard", async (req, res, next) => {
 
     res.json({
       workspace,
-      ownerGreetingName: workspace.ownerName.split(" ")[0],
+      ownerGreetingName: req.user.name.split(" ")[0],
       kpis: {
         ticketsSold,
         grossRevenue,
@@ -114,7 +113,7 @@ router.get("/dashboard", async (req, res, next) => {
 // POST /api/organizer/events — Create Event
 router.post("/events", async (req, res, next) => {
   try {
-    const workspace = await getWorkspace();
+    const workspace = req.workspace;
     const {
       title,
       genre,
@@ -165,7 +164,7 @@ router.post("/events", async (req, res, next) => {
 // GET /api/organizer/analytics?eventId=
 router.get("/analytics", async (req, res, next) => {
   try {
-    const workspace = await getWorkspace();
+    const workspace = req.workspace;
     const event = req.query.eventId
       ? await Event.findById(req.query.eventId)
       : await getActiveEvent(workspace._id);
@@ -222,7 +221,7 @@ router.get("/analytics", async (req, res, next) => {
 // GET /api/organizer/attendees?eventId=&status=&q=
 router.get("/attendees", async (req, res, next) => {
   try {
-    const workspace = await getWorkspace();
+    const workspace = req.workspace;
     const event = req.query.eventId
       ? await Event.findById(req.query.eventId)
       : await getActiveEvent(workspace._id);

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Logo from "./Logo.jsx";
 import { HomeIcon, CalendarIcon, TicketIcon, UsersIcon, AnalyticsIcon, PayoutsIcon, ChevronDownIcon } from "./icons.jsx";
+import { useAuth } from "../context/AuthContext.jsx";
 
 const NAV = [
   { key: "home", label: "Home", icon: HomeIcon, to: "/organizer" },
@@ -12,6 +13,7 @@ const NAV = [
 ];
 
 export default function OrganizerSidebar({ active, workspace }) {
+  const { logout } = useAuth();
   return (
     <aside className="org-sidebar">
       <div style={{ padding: "0 8px 22px" }}>
@@ -41,12 +43,26 @@ export default function OrganizerSidebar({ active, workspace }) {
           );
         })}
       </nav>
-      <div className="org-sidebar__user">
+      <div className="org-sidebar__user" style={{ borderTop: "1px solid rgba(255,255,255,0.06)", paddingTop: 16 }}>
         <div className="org-sidebar__avatar org-sidebar__avatar--user">{workspace?.ownerInitials || "?"}</div>
         <div style={{ flex: 1 }}>
           <div style={{ fontSize: 13, color: "#fff", fontWeight: 600 }}>{workspace?.ownerName || ""}</div>
           <div style={{ fontSize: 11, color: "#8B8794" }}>{workspace?.ownerRole || ""}</div>
         </div>
+        <button
+          onClick={logout}
+          style={{
+            background: "transparent",
+            border: "none",
+            color: "#ff4d8d",
+            fontSize: 12,
+            fontWeight: 600,
+            padding: "4px 8px",
+            cursor: "pointer"
+          }}
+        >
+          Logout
+        </button>
       </div>
     </aside>
   );

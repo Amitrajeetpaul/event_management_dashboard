@@ -2,6 +2,7 @@ import "dotenv/config";
 import { customAlphabet } from "nanoid";
 import { connectDB } from "../db.js";
 import mongoose from "mongoose";
+import User from "../models/User.js";
 import Workspace from "../models/Workspace.js";
 import Event from "../models/Event.js";
 import TicketTier from "../models/TicketTier.js";
@@ -81,6 +82,7 @@ export async function seedDatabase(skipConnection = false) {
 
   console.log("[seed] clearing collections…");
   await Promise.all([
+    User.deleteMany({}),
     Workspace.deleteMany({}),
     Event.deleteMany({}),
     TicketTier.deleteMany({}),
@@ -89,7 +91,18 @@ export async function seedDatabase(skipConnection = false) {
     DoorScan.deleteMany({}),
   ]);
 
-  const workspace = await Workspace.create(workspaceSeed);
+  const user = await User.create({
+    name: "Rina Kessler",
+    email: "rina.kessler@warehouse09.com",
+    password: "password123",
+    role: "organizer",
+  });
+  console.log(`[seed] user: ${user.email}`);
+
+  const workspace = await Workspace.create({
+    ...workspaceSeed,
+    owner: user._id,
+  });
   console.log(`[seed] workspace: ${workspace.name}`);
 
   const eventsByKey = {};
