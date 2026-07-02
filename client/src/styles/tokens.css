@@ -1,0 +1,64 @@
+:root {
+  /* Brand & interaction */
+  --violet-600: #6b4eff;
+  --violet-700: #5b3eef;
+  --violet-50: #efebff;
+  --signal-pink: #ff4d8d;
+  --ink: #16141d;
+
+  /* Semantic — money & door */
+  --paid: #16a46b;
+  --paid-bg: #e4f6ec;
+  --paid-text: #0f7a4e;
+  --pending: #e0912f;
+  --pending-bg: #fbf0de;
+  --pending-text: #9a6410;
+  --failed: #e0483b;
+  --failed-bg: #fbe9e7;
+  --failed-text: #b0261a;
+  --checked-in: #21c1b6;
+  --checked-in-bg: #dbf6f3;
+  --checked-in-text: #0c7b72;
+  --void: #8e8b99;
+  --void-bg: #f1eff4;
+  --void-text: #5b5866;
+
+  /* Neutrals — warm gray ramp */
+  --gray-50: #fbfaf7;
+  --gray-100: #f5f3ee;
+  --gray-200: #e9e7e1;
+  --gray-300: #d6d3cb;
+  --gray-400: #a8a4b0;
+  --gray-500: #8e8b99;
+  --gray-600: #5b5866;
+  --gray-800: #2c2a34;
+  --gray-900: #16141d;
+  --hairline: #efede7;
+  --hairline-2: #f3f1ec;
+
+  /* Radius */
+  --radius-input: 8px;
+  --radius-card: 12px;
+  --radius-panel: 20px;
+  --radius-pill: 999px;
+
+  /* Elevation */
+  --shadow-e1: 0 1px 2px rgba(20, 18, 30, 0.05);
+  --shadow-e2: 0 4px 16px -6px rgba(20, 18, 30, 0.14);
+  --shadow-e3: 0 20px 44px -18px rgba(20, 18, 30, 0.28);
+  --shadow-violet: 0 8px 20px -6px rgba(107, 78, 255, 0.6);
+
+  /* Spacing · 4px base */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+
+  /* Type */
+  --font-display: "Clash Display", "General Sans", sans-serif;
+  --font-body: "General Sans", sans-serif;
+  --font-mono: "Space Mono", monospace;
+}

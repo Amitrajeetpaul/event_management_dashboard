@@ -1,0 +1,291 @@
+.disco {
+  min-height: 100vh;
+  background: var(--gray-100);
+  display: flex;
+  flex-direction: column;
+}
+.disco__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px clamp(20px, 4vw, 56px);
+  background: #fff;
+  border-bottom: 1px solid var(--gray-200);
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.disco__searchbar {
+  display: flex;
+  align-items: center;
+  background: var(--gray-100);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-input);
+  padding: 9px 14px;
+  width: 340px;
+  max-width: 60vw;
+  gap: 10px;
+}
+.disco__searchbar input {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 14px;
+  width: 100%;
+  font-family: inherit;
+}
+.disco__navlink {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--gray-600);
+}
+.disco__avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--violet-50);
+  color: var(--violet-600);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.disco__body {
+  flex: 1;
+  display: flex;
+}
+.disco__filters {
+  width: 270px;
+  flex-shrink: 0;
+  background: #fff;
+  border-right: 1px solid var(--gray-200);
+  padding: 26px 24px;
+}
+@media (max-width: 900px) {
+  .disco__filters {
+    display: none;
+  }
+}
+.disco__filtersTitle {
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  color: var(--gray-500);
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+.disco__filterLabel {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 22px 0 10px;
+}
+.disco__filterLabel:first-of-type {
+  margin-top: 0;
+}
+.disco__chipRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.disco__filterChip {
+  font-size: 13px;
+  background: var(--gray-100);
+  color: var(--gray-600);
+  border-radius: var(--radius-pill);
+  padding: 6px 12px;
+  border: none;
+}
+.disco__filterChip--active {
+  background: var(--violet-600);
+  color: #fff;
+  font-weight: 600;
+}
+.disco__checkList {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  font-size: 14px;
+  color: var(--gray-600);
+}
+.disco__checkItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+.disco__checkbox {
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
+  border: 1.5px solid var(--gray-300);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.disco__checkbox--checked {
+  background: var(--violet-600);
+  border-color: var(--violet-600);
+}
+
+.disco__main {
+  flex: 1;
+  padding: 26px clamp(16px, 3vw, 40px);
+  overflow: hidden;
+}
+.disco__mainHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.disco__mainTitle {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 30px;
+  margin: 0;
+}
+.disco__mainCount {
+  font-size: 14px;
+  color: var(--gray-500);
+  margin-top: 4px;
+}
+.disco__viewToggle {
+  display: flex;
+  background: #fff;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-input);
+  padding: 3px;
+}
+.disco__viewToggle span {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gray-500);
+  padding: 7px 14px;
+  border-radius: 7px;
+}
+.disco__viewToggle .disco__viewToggle--active,
+.disco__viewToggle span.disco__viewToggle--active {
+  background: var(--ink);
+  color: #fff;
+}
+.disco__sort {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-input);
+  padding: 9px 14px;
+}
+.disco__sort select {
+  border: none;
+  outline: none;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--gray-600);
+  background: transparent;
+  font-family: inherit;
+}
+
+.disco__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 22px;
+}
+.disco__card {
+  background: #fff;
+  border: 1px solid var(--gray-200);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow-e1);
+  display: block;
+}
+.disco__cardHero {
+  height: 160px;
+  padding: 16px;
+  position: relative;
+}
+.disco__cardDate {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(0, 0, 0, 0.35);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: var(--radius-pill);
+  padding: 5px 10px;
+}
+.disco__cardBadge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: var(--signal-pink);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: var(--radius-pill);
+  padding: 5px 9px;
+}
+.disco__cardHeart {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.disco__cardName {
+  position: absolute;
+  bottom: 14px;
+  left: 16px;
+  right: 16px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: #fff;
+  font-size: 26px;
+  line-height: 0.95;
+}
+.disco__cardBody {
+  padding: 16px 18px;
+}
+.disco__cardVenue {
+  font-weight: 600;
+  font-size: 16px;
+}
+.disco__cardLineup {
+  font-size: 13px;
+  color: var(--gray-500);
+  margin-top: 3px;
+}
+.disco__cardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 14px;
+}
+.disco__cardPrice {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 16px;
+}
+.disco__cardFrom {
+  font-weight: 400;
+  font-size: 12px;
+  color: var(--gray-500);
+}
+.disco__cardGoing {
+  font-size: 12px;
+  color: var(--paid-text);
+  font-weight: 600;
+}
+.disco__cardGoing--low {
+  color: var(--failed-text);
+}

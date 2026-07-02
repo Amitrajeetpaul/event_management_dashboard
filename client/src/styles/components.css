@@ -1,0 +1,150 @@
+/* Buttons — DESIGN SYSTEM · 03 component library */
+.mq-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 600;
+  border-radius: var(--radius-input);
+  border: none;
+  font-size: 15px;
+  padding: 11px 20px;
+  transition: transform 0.08s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+.mq-btn:active {
+  transform: translateY(1px);
+}
+.mq-btn--primary {
+  background: var(--violet-600);
+  color: #fff;
+  box-shadow: var(--shadow-violet);
+}
+.mq-btn--primary:hover {
+  background: var(--violet-700);
+}
+.mq-btn--secondary {
+  background: #fff;
+  color: var(--gray-800);
+  border: 1px solid var(--gray-300);
+}
+.mq-btn--secondary:hover {
+  border-color: var(--gray-400);
+}
+.mq-btn--ghost {
+  background: transparent;
+  color: var(--violet-600);
+  box-shadow: none;
+  padding: 11px 14px;
+}
+.mq-btn--destructive {
+  background: var(--failed);
+  color: #fff;
+}
+.mq-btn--dark {
+  background: var(--ink);
+  color: #fff;
+}
+.mq-btn:disabled {
+  background: #c9c6ce;
+  color: #fff;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+.mq-btn--sm {
+  font-size: 14px;
+  padding: 9px 16px;
+}
+.mq-btn--full {
+  width: 100%;
+}
+
+/* Cards */
+.mq-card {
+  background: #fff;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-panel);
+  box-shadow: var(--shadow-e1);
+}
+
+/* Form controls */
+.mq-field-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gray-600);
+  display: block;
+  margin-bottom: 7px;
+}
+.mq-input {
+  width: 100%;
+  border: 1px solid var(--gray-200);
+  background: #fff;
+  border-radius: var(--radius-input);
+  padding: 13px 15px;
+  font-size: 15px;
+  font-family: inherit;
+  color: var(--ink);
+  outline: none;
+}
+.mq-input:focus {
+  border-color: var(--violet-600);
+  box-shadow: 0 0 0 3px var(--violet-50);
+}
+.mq-input::placeholder {
+  color: var(--gray-500);
+}
+
+/* Data table */
+.mq-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.mq-table th {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--gray-500);
+  letter-spacing: 0.03em;
+  text-align: left;
+  padding: 14px 22px;
+  border-bottom: 1px solid var(--hairline);
+  background: var(--gray-50);
+}
+.mq-table td {
+  padding: 13px 22px;
+  font-size: 14px;
+  border-bottom: 1px solid var(--hairline-2);
+}
+.mq-table tr:last-child td {
+  border-bottom: none;
+}
+.mq-table tr:nth-child(even) td {
+  background: var(--gray-50);
+}
+
+/* Skeleton loading */
+@keyframes mqskeleton {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+.mq-skeleton {
+  background: linear-gradient(90deg, var(--gray-200) 25%, var(--gray-100) 37%, var(--gray-200) 63%);
+  background-size: 400px 100%;
+  animation: mqskeleton 1.4s ease-in-out infinite;
+  border-radius: var(--radius-card);
+}
+
+/* Empty / error state block */
+.mq-state-block {
+  background: #fff;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-panel);
+  padding: 40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}

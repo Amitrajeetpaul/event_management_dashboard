@@ -1,0 +1,283 @@
+.ed__wrap {
+  min-height: 100vh;
+  background: var(--gray-100);
+}
+.ed__crumbBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px clamp(20px, 4vw, 56px);
+  background: #fff;
+  border-bottom: 1px solid var(--gray-200);
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.ed__crumb {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  flex-wrap: wrap;
+}
+.ed__pillBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-input);
+  padding: 8px 14px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--gray-600);
+  background: #fff;
+}
+
+.ed__content {
+  display: flex;
+  gap: 40px;
+  padding: 34px clamp(20px, 4vw, 56px);
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.ed__left {
+  flex: 1;
+  min-width: 320px;
+}
+.ed__hero {
+  min-height: 280px;
+  border-radius: 20px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+}
+.ed__heroTag {
+  background: rgba(255, 255, 255, 0.16);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: var(--radius-pill);
+  padding: 6px 13px;
+}
+.ed__heroBadge {
+  background: var(--signal-pink);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: var(--radius-pill);
+  padding: 6px 13px;
+}
+.ed__heroTitle {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: #fff;
+  font-size: clamp(34px, 5vw, 58px);
+  line-height: 0.94;
+  letter-spacing: -0.02em;
+}
+.ed__heroLineup {
+  color: #d9d2ff;
+  font-size: 19px;
+  margin-top: 8px;
+}
+
+.ed__metaRow {
+  display: flex;
+  gap: 30px;
+  margin-top: 26px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--gray-200);
+  flex-wrap: wrap;
+}
+.ed__metaItem {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.ed__metaIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: 11px;
+  background: var(--violet-50);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.ed__metaLabel {
+  font-size: 13px;
+  color: var(--gray-500);
+}
+.ed__metaValue {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.ed__about {
+  margin-top: 24px;
+}
+.ed__aboutTitle {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+.ed__aboutText {
+  font-size: 16px;
+  line-height: 1.65;
+  color: #3f3c49;
+  margin: 0 0 14px;
+  max-width: 640px;
+}
+.ed__amenities {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+.ed__amenity {
+  font-size: 13px;
+  background: #fff;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-pill);
+  padding: 7px 14px;
+  color: var(--gray-600);
+}
+
+.ed__right {
+  width: 390px;
+  flex-shrink: 0;
+}
+@media (max-width: 900px) {
+  .ed__right {
+    width: 100%;
+  }
+}
+.ed__ticketPanel {
+  background: #fff;
+  border: 1px solid var(--gray-200);
+  border-radius: 20px;
+  padding: 26px;
+  box-shadow: var(--shadow-e1), 0 24px 50px -26px rgba(20, 18, 30, 0.28);
+  position: sticky;
+  top: 24px;
+}
+.ed__ticketHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+.ed__ticketHeadTitle {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 26px;
+}
+.ed__onSale {
+  font-size: 13px;
+  color: var(--paid-text);
+  font-weight: 600;
+}
+.ed__ticketSub {
+  font-size: 13px;
+  color: var(--gray-500);
+  margin-bottom: 20px;
+}
+.ed__tier {
+  border: 1px solid var(--gray-200);
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+.ed__tier--active {
+  border: 1.5px solid var(--violet-600);
+  background: #faf8ff;
+}
+.ed__tier--soldout {
+  opacity: 0.6;
+}
+.ed__tierTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.ed__tierName {
+  font-weight: 600;
+  font-size: 16px;
+}
+.ed__tierDesc {
+  font-size: 13px;
+  color: var(--gray-500);
+  margin-top: 2px;
+}
+.ed__tierPrice {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 19px;
+}
+.ed__soldOutLabel {
+  margin-top: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--failed-text);
+}
+.ed__tierBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 14px;
+}
+.ed__stockLabel {
+  font-size: 12px;
+  color: var(--gray-500);
+}
+.ed__stockLabel--low {
+  color: var(--failed-text);
+  font-weight: 600;
+}
+.ed__stepper {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-input);
+  padding: 4px 6px;
+}
+.ed__stepper button {
+  border: none;
+  background: none;
+  color: var(--violet-600);
+  font-weight: 700;
+  font-size: 18px;
+  width: 22px;
+}
+.ed__stepper button:disabled {
+  color: var(--gray-300);
+}
+.ed__stepper span {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 16px;
+  min-width: 16px;
+  text-align: center;
+}
+.ed__totalRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  border-top: 1px solid var(--hairline);
+  margin-bottom: 16px;
+  font-size: 15px;
+}
+.ed__totalRow .mono {
+  font-weight: 700;
+  font-size: 22px;
+}
+.ed__secure {
+  text-align: center;
+  font-size: 12px;
+  color: var(--gray-500);
+  margin-top: 12px;
+}
