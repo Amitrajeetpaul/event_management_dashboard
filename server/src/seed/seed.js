@@ -17,7 +17,7 @@ import {
   demoAttendeeOrders,
 } from "./data.js";
 
-const code = customAlphabet("ABCDEFGHJKLMNPQRSTUVWXYZ23456789", 4);
+const code = customAlphabet("ABCDEFGHJKLMNPQRSTUVWXYZ23456789", 6);
 const nextCode = () => `MQ-${code()}`;
 
 const FIRST_NAMES = [
